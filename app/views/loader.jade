@@ -1,0 +1,53 @@
+extends ./layout.jade
+
+block styles
+	link(rel="stylesheet" media="all" href="/bower_components/dropzone/dist/basic.css")
+	link(rel="stylesheet" media="all" href="/bower_components/dropzone/dist/dropzone.css")
+	link(rel="stylesheet" media="all" href="/css/app.loader.css")
+
+block content
+	.feature(class="has-gradient")
+		.top_shadow
+		.inner
+			h1.entry-title= title
+		.bottom_shadow
+
+	.page
+		.inner
+			.breadcrumb(class="breadcrumbs")
+				.breadcrumbs-plus
+					span(itemscope, itemtype="http://data-vocabulary.org/Breadcrumb")
+						a(href="/"): span(itemprop="url"): |Home
+					i.fa(class="fa-angle-double-right")
+					span(itemscope, itemtype="http://data-vocabulary.org/Breadcrumb")
+						span(itemprop="title"): |Image Loader
+			.main
+				.content
+					.load-list(class="col-sm-3")
+						ul
+					.load-form(class="col-sm-8 col-sm-offset-1")
+						.form-group(class="col-sm-7")
+							label.control-label(for="name"): |Title
+							input#name.form-control(type="text", placeholder="Title")
+						.form-group(class="col-sm-12")
+							label.control-label(for="caption"): |Caption
+							input#caption.form-control(type="text", placeholder="Caption")
+						.form-group(class="col-sm-4")
+							label.control-label(for="size"): |Size
+							input#size.form-control(type="text", placeholder="Size")
+						.form-group(class="col-sm-4")
+							label.control-label(for="status"): |Status
+							input#status.form-control(type="text", placeholder="Status")
+						.form-group(class="col-sm-12")
+							label.control-label(for="fbDropZone"): |Image
+							form#fbDropZone.dropzone(action='/loader', method='post', enctype='multipart/form-data')
+								.fallback
+									input(type='file', name='file')
+						.form-group(class="col-sm-12")
+							button.btn(class=["btn-info","pull-right","btn-save"], disabled): |Save
+
+block scripts
+	script(src="/bower_components/dropzone/dist/dropzone.js")
+	script(src="/socket.io/socket.io.js")
+	script(src="/js/jquery.pubsub.js")
+	script(src="/js/app.loader.js")

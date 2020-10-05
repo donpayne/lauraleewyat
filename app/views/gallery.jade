@@ -1,0 +1,37 @@
+extends ./layout.jade
+
+block styles
+	link(rel="stylesheet" media="all" href="/bower_components/justified-gallery/dist/css/justifiedGallery.css")
+	link(rel="stylesheet" media="all" href="/bower_components/fancybox/source/jquery.fancybox.css")
+	link(rel="stylesheet" media="all" href="/bower_components/fancybox/source/helpers/jquery.fancybox-buttons.css")
+	link(rel="stylesheet" media="all" href="/bower_components/fancybox/source/helpers/jquery.fancybox-thumbs.css")
+	link(rel="stylesheet" media="all" href="/css/app.gallery.css")
+
+block content
+	.feature(class="has-gradient")
+		.top_shadow
+		.inner
+			h1.entry-title= title
+		.bottom_shadow
+
+	.page
+		.inner
+			.breadcrumb(class="breadcrumbs")
+				.breadcrumbs-plus
+					span(itemscope, itemtype="http://data-vocabulary.org/Breadcrumb")
+						a(href="/"): span(itemprop="url"): |Home
+					i.fa(class="fa-angle-double-right")
+					span(itemscope, itemtype="http://data-vocabulary.org/Breadcrumb")
+						span(itemprop="title"): |Gallery Representation
+			.main
+				.content
+
+block scripts
+	script(src="/bower_components/justified-gallery/dist/js/jquery.justifiedGallery.js")
+	script(src="/bower_components/fancybox/source/jquery.fancybox.pack.js")
+	script(src="/bower_components/fancybox/source/helpers/jquery.fancybox-buttons.js")
+	script(src="/bower_components/fancybox/source/helpers/jquery.fancybox-media.js")
+	script(src="/bower_components/fancybox/source/helpers/jquery.fancybox-thumbs.js")
+	script(src="/socket.io/socket.io.js")
+	script(src="/js/jquery.pubsub.js")
+	script(src="/js/app.gallery.js")

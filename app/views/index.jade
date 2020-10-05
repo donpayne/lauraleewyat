@@ -1,0 +1,33 @@
+extends ./layout.jade
+
+block styles
+	link(rel="stylesheet" media="all" href="/bower_components/justified-gallery/dist/css/justifiedGallery.css")
+	link(rel="stylesheet" media="all" href="/bower_components/fancybox/source/jquery.fancybox.css")
+	link(rel="stylesheet" media="all" href="/bower_components/fancybox/source/helpers/jquery.fancybox-buttons.css")
+	link(rel="stylesheet" media="all" href="/bower_components/fancybox/source/helpers/jquery.fancybox-thumbs.css")
+	link(rel="stylesheet" media="all" href="/css/app.index.css")
+
+block content
+	.feature(class="has-gradient")
+		.top_shadow
+		.inner
+			#carousel(class=["carousel","slide","carousel-fade"], data-ride="carousel")
+				.carousel-inner
+					each art in artwork
+						.item: img(src= art.src)
+		.bottom_shadow
+
+	.page
+		.inner
+			.main
+				.content
+
+block scripts
+	script(src="/bower_components/justified-gallery/dist/js/jquery.justifiedGallery.js")
+	script(src="/bower_components/fancybox/source/jquery.fancybox.pack.js")
+	script(src="/bower_components/fancybox/source/helpers/jquery.fancybox-buttons.js")
+	script(src="/bower_components/fancybox/source/helpers/jquery.fancybox-media.js")
+	script(src="/bower_components/fancybox/source/helpers/jquery.fancybox-thumbs.js")
+	script(src="/socket.io/socket.io.js")
+	script(src="/js/jquery.pubsub.js")
+	script(src="/js/app.index.js")

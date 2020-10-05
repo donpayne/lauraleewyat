@@ -1,0 +1,34 @@
+extends ./layout.jade
+
+block styles
+	link(rel="stylesheet" media="all" href="http://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.3.2/fullcalendar.min.css")
+	link(rel="stylesheet" media="all" href="/css/app.calendar.css")
+
+block content
+	.feature(class="has-gradient")
+		.top_shadow
+		.inner
+			h1.entry-title= title
+		.bottom_shadow
+
+	.page
+		.inner
+			.breadcrumb(class="breadcrumbs")
+				.breadcrumbs-plus
+					span(itemscope, itemtype="http://data-vocabulary.org/Breadcrumb")
+						a(href="/"): span(itemprop="url"): |Home
+					i.fa(class="fa-angle-double-right")
+					span(itemscope, itemtype="http://data-vocabulary.org/Breadcrumb")
+						span(itemprop="title"): |Show Calendar
+			.main
+				.content
+					#loading: |loading...
+					#calendar
+
+block scripts
+	script(src="/js/moment.min.js")
+	script(src="http://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.3.2/fullcalendar.min.js")
+	script(src="/socket.io/socket.io.js")
+	script(src="/js/gcal.js")
+	script(src="/js/jquery.pubsub.js")
+	script(src="/js/app.calendar.js")

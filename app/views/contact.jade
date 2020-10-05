@@ -1,0 +1,60 @@
+extends ./layout.jade
+
+block styles
+	link(rel="stylesheet" media="all" href="/css/app.contact.css")
+
+block content
+	.feature(class="has-gradient")
+		.top_shadow
+		.inner
+			h1.entry-title= title
+		.bottom_shadow
+
+	.page
+		.inner
+			.contact-form(class="col-sm-5")
+				.row
+					legend: |Would you like to meet for a cup of coffee?
+					.address
+						h3: |Noisette Pastry Kitchen
+						h4: |200 W Broadway
+						h4: |Eugene, OR 97401
+					form
+						.form-group(class="has-feedback")
+							.input-group
+								span.input-group-addon: i.glyphicon(class="glyphicon-user")
+								input#name.form-control(type="text", name="name", placeholder="Name *")
+
+						.form-group(class="has-feedback")
+							.input-group
+								span.input-group-addon: i.glyphicon(class="glyphicon-envelope")
+								input#address.form-control(type="email", name="address", placeholder="E-Mail *")
+
+						.form-group(class="has-feedback")
+							.input-group
+								span.input-group-addon: i.glyphicon(class="glyphicon-earphone")
+								input#phone.form-control(type="text", name="phone", placeholder="Telephone *")
+
+						.form-group(class="has-feedback")
+							textarea#message.form-control(type="text", name="message", rows="10", placeholder="Message*")
+
+						button#submit.btn(type="button", class=["btn-info","btn-sm","pull-right"]): |Send
+
+			.contact-location(class="col-sm-7")
+				img(src="/img/noisette.jpg")
+
+	#thankyou.modal(class="fade", tabindex="-1", role="dialog")
+		.modal-dialog
+			.modal-content
+				.modal-header
+					button.close(type="button", data-dismiss="modal"): i.fa(class="fa-times")
+					h3.modal-title: |Thank You!
+				.modal-body
+					p: |I'll be in touch with you soon.
+					p: |Cheers, Laura
+
+block scripts
+	script(src="/bower_components/jquery-validation/dist/jquery.validate.min.js")
+	script(src="/socket.io/socket.io.js")
+	script(src="/js/jquery.pubsub.js")
+	script(src="/js/app.contact.js")
